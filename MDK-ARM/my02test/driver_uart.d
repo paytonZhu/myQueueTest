@@ -1,6 +1,6 @@
-my02test/driver_uart.o: ..\Drivers\UART\driver_uart.c \
-  ..\Drivers\UART\driver_uart.h ..\Core\Inc\usart.h ..\Core\Inc\main.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
+my02test/driver_uart.o: ..\..\my02test\Drivers\UART\driver_uart.c \
+  ..\..\my02test\Drivers\UART\driver_uart.h ..\Core\Inc\usart.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \

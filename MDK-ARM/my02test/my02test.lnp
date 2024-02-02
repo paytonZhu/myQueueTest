@@ -36,7 +36,7 @@
 "my02test\cmsis_os2.o"
 "my02test\heap_4.o"
 "my02test\port.o"
---strict --scatter "my02test\my02test.sct"
+--library_type=microlib --strict --scatter "my02test\my02test.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "my02test.map" -o my02test\my02test.axf

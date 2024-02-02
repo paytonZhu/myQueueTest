@@ -30,6 +30,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "semphr.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,6 +99,11 @@ const osThreadAttr_t myUart1Task_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityBelowNormal,
 };
+/* Definitions for myQueue01 */
+osMessageQueueId_t myQueue01Handle;
+const osMessageQueueAttr_t myQueue01_attributes = {
+  .name = "myQueue01"
+};
 /* Definitions for myBinarySem01 */
 osSemaphoreId_t myBinarySem01Handle;
 const osSemaphoreAttr_t myBinarySem01_attributes = {
@@ -143,6 +149,10 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
+
+  /* Create the queue(s) */
+  /* creation of myQueue01 */
+  myQueue01Handle = osMessageQueueNew (10, sizeof(uint16_t), &myQueue01_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -234,7 +244,8 @@ void StartTask03(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    osDelay(1000);
+		printf("Hello, World!\n");
   }
   /* USER CODE END StartTask03 */
 }
@@ -306,6 +317,15 @@ void StartUart1Task(void *argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
+//int _write(int file, char *ptr, int len) {
+//  // 实现将数据发送到串口的代码
+//  // 例如，使用 HAL 库发送数据到串口
+
+//  // 这是一个示例，具体的实现可能会根据你的配置和库的不同而有所调整
+//  HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, HAL_MAX_DELAY);
+
+//  return len;
+//}
 
 /* USER CODE END Application */
 
